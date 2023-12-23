@@ -1,7 +1,8 @@
-package com.example.yukigames
+package com.example.yukigames.presentation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.yukigames.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

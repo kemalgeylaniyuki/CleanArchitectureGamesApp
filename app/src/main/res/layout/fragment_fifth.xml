@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:paddingHorizontal="20dp"
+    android:backgroundTint="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/notification">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advance Notification"
+            android:textSize="24sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20dp">
+        </Space>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="let me inform ..."
+            android:textAlignment="center"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="10dp">
+        </Space>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"
+            android:background="@drawable/ic_rounded"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/arrow_forward">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

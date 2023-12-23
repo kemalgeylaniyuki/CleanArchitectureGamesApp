@@ -36,6 +36,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
 }
 
 val room_version = "2.6.1"
@@ -86,5 +91,7 @@ dependencies {
     // Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     kapt ("com.github.bumptech.glide:compiler:4.16.0")
+
+    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
 }
