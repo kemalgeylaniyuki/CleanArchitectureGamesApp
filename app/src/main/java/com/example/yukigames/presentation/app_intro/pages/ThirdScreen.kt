@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.yukigames.R
 import com.example.yukigames.databinding.FragmentThirdBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ThirdScreen : Fragment() {
 
     private var _binding: FragmentThirdBinding? = null

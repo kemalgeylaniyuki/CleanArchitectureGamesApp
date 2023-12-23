@@ -12,7 +12,9 @@ import com.example.yukigames.presentation.app_intro.pages.FirstScreen
 import com.example.yukigames.presentation.app_intro.pages.FourthScreen
 import com.example.yukigames.presentation.app_intro.pages.SecondScreen
 import com.example.yukigames.presentation.app_intro.pages.ThirdScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AppIntroFragment : Fragment() {
 
     private var _binding: FragmentAppIntroBinding? = null

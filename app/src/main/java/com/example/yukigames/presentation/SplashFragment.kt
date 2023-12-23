@@ -11,16 +11,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.yukigames.R
 import com.example.yukigames.databinding.FragmentSplashBinding
 import com.example.yukigames.util.SessionManager
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
-
+@AndroidEntryPoint
 class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
 
-
-    private lateinit var sessionManager: SessionManager
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/serach">
+            android:src="@drawable/serach_new">
 
         </ImageView>
 

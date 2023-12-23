@@ -5,15 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.yukigames.R
 import com.example.yukigames.databinding.FragmentMainBinding
+import com.example.yukigames.util.SessionManager
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
-    //@Inject
-    //lateinit var sessionManager: SessionManager
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,18 +29,14 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        /*
+
         if (sessionManager.getIsFirstRun())
             sessionManager.setIsFirstRun(false)
 
         setUpTabBar()
 
-         */
-
         return view
     }
-
-    /*
 
     private fun setUpTabBar(){
 
@@ -44,15 +46,13 @@ class MainFragment : Fragment() {
                 R.id.home -> childFragmentManager.primaryNavigationFragment?.
                 findNavController()?.navigate(R.id.homeFragment)
                 R.id.favorites -> childFragmentManager.primaryNavigationFragment?.
-                findNavController()?.navigate(R.id.favoriteFragment)
+                findNavController()?.navigate(R.id.favoritesFragment)
                 R.id.settings -> childFragmentManager.primaryNavigationFragment?.
-                findNavController()?.navigate(R.id.settingsFragment)
+                findNavController()?.navigate(R.id.searchFragment)
             }
         }
 
     }
-
-     */
 
     override fun onDestroyView() {
         super.onDestroyView()

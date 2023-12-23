@@ -1,8 +1,9 @@
 package com.example.yukigames.util
 
 import android.content.SharedPreferences
+import javax.inject.Inject
 
-class SessionManager(private val sharedPreferences: SharedPreferences) {
+class SessionManager @Inject constructor(private val sharedPreferences: SharedPreferences) {
 
     fun getIsFirstRun() = sharedPreferences.getBoolean(Constants.FIRST_RUN_KEY, true)
 

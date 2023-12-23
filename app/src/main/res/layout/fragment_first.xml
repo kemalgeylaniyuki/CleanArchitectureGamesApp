@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="360dp"
             android:layout_height="200dp"
-            android:src="@drawable/database">
+            android:src="@drawable/database_new">
 
         </ImageView>
 
