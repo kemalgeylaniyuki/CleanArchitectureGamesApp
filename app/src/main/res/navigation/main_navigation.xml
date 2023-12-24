@@ -25,6 +25,6 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.yukigames.presentation.games.MainFragment"
+        android:name="com.example.yukigames.presentation.games.views.MainFragment"
         android:label="MainFragment" />
 </navigation>

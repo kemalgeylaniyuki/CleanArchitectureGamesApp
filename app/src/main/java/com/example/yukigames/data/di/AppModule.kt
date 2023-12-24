@@ -3,6 +3,8 @@ package com.example.yukigames.data.di
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.yukigames.data.remote.GamesAPI
+import com.example.yukigames.data.repository.GameRepositoryImpl
+import com.example.yukigames.domain.repository.GameRepository
 import com.example.yukigames.util.Constants
 import com.example.yukigames.util.Constants.BASE_URL
 import com.example.yukigames.util.SessionManager
@@ -27,6 +29,12 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(GamesAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGameRepository(api : GamesAPI) : GameRepository{
+        return GameRepositoryImpl(api = api)
     }
 
     @Provides
