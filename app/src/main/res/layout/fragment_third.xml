@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/category_new">
+            android:src="@drawable/category1">
 
         </ImageView>
 
@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category"
+
             android:textSize="24sp"
             android:textStyle="bold">
 

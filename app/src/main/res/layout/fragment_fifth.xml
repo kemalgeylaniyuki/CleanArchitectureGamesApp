@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="200dp"
-            android:src="@drawable/notification_new">
+            android:src="@drawable/notification1">
 
         </ImageView>
 
@@ -57,8 +57,8 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/arrow_forward">
 
             </ImageView>

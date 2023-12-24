@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.yukigames.R
 import com.example.yukigames.databinding.FragmentFifthBinding
@@ -48,6 +49,10 @@ class FifthScreen : Fragment() {
             homePageViewModel.loadGenreData()
         }
          */
+
+        binding.next.setOnClickListener {
+            findNavController().navigate(R.id.action_appIntroFragment_to_mainFragment)
+        }
 
         return view
     }
