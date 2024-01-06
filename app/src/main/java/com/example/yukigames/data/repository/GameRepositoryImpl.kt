@@ -9,4 +9,9 @@ class GameRepositoryImpl @Inject constructor(private val api : GamesAPI) : GameR
     override suspend fun getGames(page: String): GamesDTO {
         return api.getGames(page = page)
     }
+
+    override suspend fun searchGames(search: String): GamesDTO {
+        return api.searchGames(search = search)
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games
+package com.example.yukigames.presentation.games.gamelist_viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -6,4 +6,6 @@ interface GameRepository {
 
     suspend fun getGames(page : String) : GamesDTO
 
+    suspend fun searchGames(search : String) : GamesDTO
+
 }
