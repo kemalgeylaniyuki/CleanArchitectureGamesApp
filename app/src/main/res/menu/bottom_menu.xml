@@ -15,10 +15,17 @@
         android:icon="@drawable/ic_heart_filled"
         android:title="Favorites"
         app:cnb_iconColor="#9C27B0"/>
+
     <item
         android:id="@+id/settings"
         android:icon="@drawable/search_icon"
         android:title="Search"
+        app:cnb_iconColor="#9C27B0" />
+
+    <item
+        android:id="@+id/category"
+        android:title="Categories"
+        android:icon="@drawable/categories"
         app:cnb_iconColor="#9C27B0" />
 
 </menu>

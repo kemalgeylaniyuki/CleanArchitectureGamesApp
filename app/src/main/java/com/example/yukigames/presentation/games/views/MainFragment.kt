@@ -49,6 +49,8 @@ class MainFragment : Fragment() {
                 findNavController()?.navigate(R.id.favoritesFragment)
                 R.id.settings -> childFragmentManager.primaryNavigationFragment?.
                 findNavController()?.navigate(R.id.searchFragment)
+                R.id.category -> childFragmentManager.primaryNavigationFragment?.
+                findNavController()?.navigate(R.id.categoriesFragment)
             }
         }
 
