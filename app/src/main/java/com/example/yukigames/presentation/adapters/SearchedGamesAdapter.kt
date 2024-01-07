@@ -2,10 +2,13 @@ package com.example.yukigames.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.SearchItemBinding
 import com.example.yukigames.domain.model.Game
+import com.example.yukigames.presentation.games.views.pages.HomeFragmentDirections
+import com.example.yukigames.presentation.games.views.pages.SearchFragmentDirections
 
 class SearchedGamesAdapter : RecyclerView.Adapter<SearchedGamesAdapter.SearchedGamesHolder>() {
 
@@ -44,6 +47,12 @@ class SearchedGamesAdapter : RecyclerView.Adapter<SearchedGamesAdapter.SearchedG
 
     override fun onBindViewHolder(holder: SearchedGamesHolder, position: Int) {
         holder.bindSearchedData(searchedGameList.get(position))
+
+        holder.itemView.setOnClickListener {
+            val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(searchedGameList.get(position).id)
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
 
 }

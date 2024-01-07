@@ -17,7 +17,7 @@
         android:theme="@style/Theme.YukiGames"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activities.MainActivity"
+            android:name=".presentation.activities.Games"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

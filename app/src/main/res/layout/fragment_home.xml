@@ -6,8 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activities.MainActivity"
-    android:background="#0D9C27B0">
+    tools:context=".presentation.activities.Games"
+    android:background="#59673AB7">
 
     <TextView
         android:id="@+id/errorView"

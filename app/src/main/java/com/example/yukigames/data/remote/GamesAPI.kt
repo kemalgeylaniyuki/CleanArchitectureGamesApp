@@ -1,8 +1,10 @@
 package com.example.yukigames.data.remote
 
+import com.example.yukigames.data.remote.dto.GameDetailsDTO
 import com.example.yukigames.data.remote.dto.GamesDTO
 import com.example.yukigames.util.Constants.API_KEY
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface GamesAPI {
@@ -20,5 +22,11 @@ interface GamesAPI {
         @Query("key") key : String = API_KEY,
         @Query("search") search : String
     ) : GamesDTO
+
+    @GET("games/{id}")
+    suspend fun getGameDetails(
+        @Path("id") id : Int,
+        @Query("key") key : String = API_KEY
+    ) : GameDetailsDTO
 
 }

@@ -12,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yukigames.databinding.FragmentSearchBinding
 import com.example.yukigames.presentation.adapters.SearchedGamesAdapter
+import com.example.yukigames.presentation.game_details.view.DetailFragmentArgs
+import com.example.yukigames.presentation.game_details.viewModel.GameDetailsViewModel
 import com.example.yukigames.presentation.games.search_viewmodel.SearchEvent
 import com.example.yukigames.presentation.games.search_viewmodel.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +29,9 @@ class SearchFragment : Fragment() {
 
     private lateinit var searchedGamesAdapter: SearchedGamesAdapter
     private val searchViewModel : SearchViewModel by viewModels()
+    private val gameDetailsViewModel : GameDetailsViewModel by viewModels()
     private var job : Job? = null
+    private var id = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +45,12 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        arguments?.let {
+            id = DetailFragmentArgs.fromBundle(it).id
+        }
+
+        gameDetailsViewModel.getGameDetails(id)
 
         binding.recyclerViewSearching.layoutManager = LinearLayoutManager(context)
         searchedGamesAdapter = SearchedGamesAdapter()

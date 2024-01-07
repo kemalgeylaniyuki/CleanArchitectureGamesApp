@@ -1,5 +1,7 @@
 package com.example.yukigames.data.remote.dto
 
+import com.example.yukigames.domain.model.GameDetails
+
 data class GameDetailsDTO(
     val achievements_count: Int,
     val added: Int,
@@ -56,3 +58,7 @@ data class GameDetailsDTO(
     val website: String,
     val youtube_count: Int
 )
+
+fun GameDetailsDTO.toGameDetails() : GameDetails{
+    return GameDetails(background_image,description_raw,genres,id,name_original,rating,released,website,youtube_count)
+}

@@ -2,10 +2,12 @@ package com.example.yukigames.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.GamesItem2Binding
 import com.example.yukigames.domain.model.Game
+import com.example.yukigames.presentation.games.views.pages.HomeFragmentDirections
 
 class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
 
@@ -43,7 +45,14 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
     }
 
     override fun onBindViewHolder(holder: GamesHolder, position: Int) {
+
         holder.bind(gameList.get(position))
+
+        holder.itemView.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(gameList.get(position).id)
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
 
 }

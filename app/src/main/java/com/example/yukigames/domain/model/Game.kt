@@ -8,8 +8,8 @@ data class Game(
     val background_image: String?,
     val id: Int,
     val genres: List<Genre>,
-    val name: String,
-    val rating: Double,
+    val name: String?,
+    val rating: Double?,
     val parent_platforms: List<ParentPlatform>,
     val released: String?
 
