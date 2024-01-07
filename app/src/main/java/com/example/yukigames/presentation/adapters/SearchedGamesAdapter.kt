@@ -24,7 +24,7 @@ class SearchedGamesAdapter : RecyclerView.Adapter<SearchedGamesAdapter.SearchedG
         fun bindSearchedData(data : Game){
 
             binding.txtTitleSearch.text = data.name
-            binding.txtGenreSearch.text = "Genre"
+            binding.txtGenreSearch.text = data.genres?.map { it.name }.toString()
             binding.txtReleaseDateSearch.text = data.released
             binding.txtVoteAverageSearch.text = data.rating.toString() + "/10"
 

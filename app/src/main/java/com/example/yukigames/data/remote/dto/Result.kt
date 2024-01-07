@@ -12,6 +12,7 @@ data class Result(
     val metacritic: Int,
     val name: String,
     val parent_platforms: List<ParentPlatform>,
+    val platform: List<Platform>,
     val platforms: List<PlatformX>,
     val playtime: Int,
     val rating: Double,

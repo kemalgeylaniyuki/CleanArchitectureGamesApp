@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E5E8E8">
 
     <item
         android:id="@+id/home"
         android:icon="@drawable/home"
         android:title="Home"
-        app:cnb_iconColor="#302b63"/>
+        app:cnb_iconColor="#9C27B0"/>
 
     <item
         android:id="@+id/favorites"
         android:icon="@drawable/ic_heart_filled"
         android:title="Favorites"
-        app:cnb_iconColor="#E91E1E"/>
+        app:cnb_iconColor="#9C27B0"/>
     <item
         android:id="@+id/settings"
         android:icon="@drawable/search_icon"
         android:title="Search"
-        app:cnb_iconColor="#24243E" />
+        app:cnb_iconColor="#9C27B0" />
 
 </menu>

@@ -23,7 +23,8 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
         fun bind(data : Game){
 
             binding.txtTitle.text = data.name
-            binding.txtGenre.text = "Genre"
+            binding.txtGenre.text = data.genres?.joinToString(", ") { it.name }
+            binding.txtPlatform.text = data.parent_platforms?.joinToString(", ") { it.platform.name }
             binding.txtReleaseDate.text = data.released
             binding.txtVoteAverage.text = data.rating.toString() + "/10"
 

@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.activities
+package com.example.yukigames.presentation.activitiy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

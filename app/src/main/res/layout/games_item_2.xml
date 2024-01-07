@@ -44,7 +44,16 @@
                android:layout_height="wrap_content"
                android:id="@+id/txtGenre"
                android:layout_marginBottom="4dp"
-               android:text="Genre Genre Genre Genre">
+               android:text="Genre">
+
+           </TextView>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtPlatform"
+               android:text="Platform"
+               android:layout_marginBottom="4dp">
 
            </TextView>
 

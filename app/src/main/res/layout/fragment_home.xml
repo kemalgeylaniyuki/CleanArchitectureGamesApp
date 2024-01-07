@@ -6,15 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activities.Games"
-    android:background="#59673AB7">
+    tools:context=".presentation.activitiy.Games"
+    android:background="#CCD1D1">
 
     <TextView
         android:id="@+id/errorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,9 +42,8 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:paddingHorizontal="20dp"
-            android:background="@color/white"
-            android:elevation="1dp"
-            >
+            android:background="#AEB6BF"
+            android:elevation="1dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -53,7 +52,8 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="@string/app_name">
+                android:text="@string/app_name"
+                android:textColor="@color/black">
             </TextView>
 
             <RelativeLayout

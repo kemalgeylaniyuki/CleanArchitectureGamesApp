@@ -14,7 +14,7 @@
         android:layout_height="60dp"
         android:layout_gravity="bottom"
         android:elevation="5dp"
-        android:background="@color/white"
+        android:background="#B2BABB"
         app:cnb_menuResource="@menu/bottom_menu"
         tools:ignore="MissingClass"/>
 

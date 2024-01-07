@@ -53,12 +53,12 @@ class DetailFragment : Fragment() {
             gameDetailsViewModel.state.collect{
 
                 it.game?.let {
-                    binding.textViewName.text = "Name : " + it.name_original
+                    binding.textViewName.text = it.name_original
                     binding.textViewDescription.text = "Description : " + it.description_raw
-                    binding.textViewGenres.text = "GENRE : Genre"
-                    binding.textViewReleased.text = "Released Date : " + it.released
+                    binding.textViewGenres.text = it.genres?.joinToString(", ") { it.name }
+                    binding.textViewReleased.text = it.released
 
-                    val formattedRating : String = "Rating : %.1f".format(it.rating)
+                    val formattedRating : String = "%.1f".format(it.rating)
                     binding.textViewRating.text = formattedRating
 
                     binding.textViewWesite.text = it.website
