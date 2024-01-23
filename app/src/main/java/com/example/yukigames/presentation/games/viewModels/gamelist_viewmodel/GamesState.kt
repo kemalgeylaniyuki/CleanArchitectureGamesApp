@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.gamelist_viewmodel
+package com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel
 
 import com.example.yukigames.domain.model.Game
 

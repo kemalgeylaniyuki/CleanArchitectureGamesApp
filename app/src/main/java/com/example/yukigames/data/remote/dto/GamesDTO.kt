@@ -20,6 +20,7 @@ data class GamesDTO(
 
 fun GamesDTO.toGameList() : List<Game> {
     return results.map { result -> Game(
+
         result.background_image,
         result.id,
         result.genres,
@@ -27,5 +28,6 @@ fun GamesDTO.toGameList() : List<Game> {
         result.rating,
         result.parent_platforms,
         result.released
+
     ) }
 }

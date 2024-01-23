@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yukigames.databinding.FragmentHomeBinding
 import com.example.yukigames.presentation.adapters.GamesAdapter
-import com.example.yukigames.presentation.games.gamelist_viewmodel.GamesViewModel
+import com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel.GamesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

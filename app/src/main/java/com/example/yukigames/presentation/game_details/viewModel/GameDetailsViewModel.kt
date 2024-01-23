@@ -2,7 +2,10 @@ package com.example.yukigames.presentation.game_details.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.yukigames.domain.model.Game
+import com.example.yukigames.domain.model.GameDetails
 import com.example.yukigames.domain.use_case.get_game_details.GetGameDetailsUseCase
+import com.example.yukigames.domain.use_case.upsert_game.UpsertGameUseCase
 import com.example.yukigames.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -10,24 +13,31 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class GameDetailsViewModel @Inject constructor(
-    private val getGameDetailsUseCase : GetGameDetailsUseCase) : ViewModel() {
+    private val getGameDetailsUseCase : GetGameDetailsUseCase,
+    private val upsertGameUseCase : UpsertGameUseCase
+) : ViewModel() {
 
     private val _state = MutableStateFlow(GameDetailsState())
     val state : StateFlow<GameDetailsState> = _state
 
+
     private var job : Job? = null
 
+
     fun getGameDetails(id : Int){
+
+        job?.cancel()
 
         job = getGameDetailsUseCase.executeGetGameDetails(id = id).onEach {
             when(it){
 
                 is Resource.Success -> {
-                    _state.value = GameDetailsState(game = it.data)
+                    _state.value = GameDetailsState(gameDetails = it.data)
                 }
 
                 is Resource.Loading -> {
@@ -42,5 +52,25 @@ class GameDetailsViewModel @Inject constructor(
         }.launchIn(viewModelScope)
 
     }
+
+    fun upsertGame(gameDetails: GameDetails) {
+        viewModelScope.launch {
+            // GameDetails'dan Game'e dönüşüm yaparak upsert işlemi gerçekleştir
+            val game = Game(
+                background_image = gameDetails.background_image,
+                id = gameDetails.id,
+                genres = gameDetails.genres, // Eğer Game sınıfında bir genres özelliği varsa
+                name = gameDetails.name_original,
+                rating = gameDetails.rating,
+                parent_platforms = gameDetails.parent_platforms,
+                released = gameDetails.released
+            )
+            upsertGameUseCase.executeUpsertGameUseCase(game).collect {
+                // Handle the result if needed
+            }
+        }
+    }
+
+
 
 }

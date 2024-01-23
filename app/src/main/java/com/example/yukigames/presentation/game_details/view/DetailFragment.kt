@@ -4,15 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.yukigames.R
 import com.example.yukigames.databinding.FragmentGameDetailsBinding
+import com.example.yukigames.domain.model.Game
+import com.example.yukigames.domain.model.GameDetails
+import com.example.yukigames.domain.use_case.upsert_game.UpsertGameUseCase
 import com.example.yukigames.presentation.game_details.viewModel.GameDetailsViewModel
+import com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel.GamesViewModel
+import com.example.yukigames.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -23,6 +32,8 @@ class DetailFragment : Fragment() {
     private val gameDetailsViewModel : GameDetailsViewModel by viewModels()
     private var job : Job? = null
     private var id = 0
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +56,13 @@ class DetailFragment : Fragment() {
 
         observeViewModel()
 
+        binding.floatingActionButton.setOnClickListener {
+            gameDetailsViewModel.state.value.gameDetails?.let {
+                gameDetailsViewModel.upsertGame(it)
+            }
+        }
+
+
     }
 
     fun observeViewModel(){
@@ -52,7 +70,7 @@ class DetailFragment : Fragment() {
         job = viewLifecycleOwner.lifecycleScope.launch {
             gameDetailsViewModel.state.collect{
 
-                it.game?.let {
+                it.gameDetails?.let {
                     binding.textViewName.text = it.name_original
                     binding.textViewDescription.text = "Description : " + it.description_raw
                     binding.textViewGenres.text = it.genres?.joinToString(", ") { it.name }
@@ -67,7 +85,9 @@ class DetailFragment : Fragment() {
                         .load(it.background_image)
                         .into(binding.imageView)
 
+
                 }
+
 
                 if (it.error.isNotBlank()){
                     binding.errorTextView.text = it.error

@@ -2,8 +2,10 @@ package com.example.yukigames.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.impl.utils.isDefaultProcess
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.GamesItem2Binding
 import com.example.yukigames.domain.model.Game
@@ -45,6 +47,8 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
         return gameList.size
     }
 
+    private var onItemClickListener : ((Game) -> Unit)? = null
+
     override fun onBindViewHolder(holder: GamesHolder, position: Int) {
 
         holder.bind(gameList.get(position))
@@ -53,6 +57,7 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
             val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(gameList.get(position).id)
             Navigation.findNavController(it).navigate(action)
         }
+
 
     }
 

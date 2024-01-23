@@ -18,7 +18,7 @@ data class GameDetailsDTO(
     val dominant_color: String,
     val esrb_rating: Any,
     val game_series_count: Int,
-    val genres: List<GenreX>,
+    val genres: List<Genre>,
     val id: Int,
     val metacritic: Int,
     val metacritic_platforms: List<Any>,
@@ -27,7 +27,7 @@ data class GameDetailsDTO(
     val name: String,
     val name_original: String,
     val parent_achievements_count: Int,
-    val parent_platforms: List<ParentPlatformX>,
+    val parent_platforms: List<ParentPlatform>,
     val parents_count: Int,
     val platforms: List<PlatformXXXX>,
     val playtime: Int,
@@ -60,5 +60,5 @@ data class GameDetailsDTO(
 )
 
 fun GameDetailsDTO.toGameDetails() : GameDetails{
-    return GameDetails(background_image,description_raw,genres,id,name_original,rating,released,website,youtube_count)
+    return GameDetails(background_image,description_raw,genres,id,name_original,rating,released,website,youtube_count,parent_platforms)
 }

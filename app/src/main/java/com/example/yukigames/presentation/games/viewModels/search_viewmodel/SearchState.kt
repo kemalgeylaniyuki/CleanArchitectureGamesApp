@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.search_viewmodel
+package com.example.yukigames.presentation.games.viewModels.search_viewmodel
 
 import com.example.yukigames.domain.model.Game
 

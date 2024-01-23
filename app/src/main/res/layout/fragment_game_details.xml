@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CCD1D1">
@@ -14,8 +15,8 @@
             android:id="@+id/lineatLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="20dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewName">
@@ -24,25 +25,25 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/star"
                     android:layout_gravity="center"
-                    android:layout_marginRight="5dp">
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/star">
 
                 </ImageView>
 
                 <TextView
+                    android:id="@+id/textViewRating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textViewRating"
                     android:text="8/10"
-                    android:textSize="20sp"
-                    android:textColor="@color/black">
+                    android:textColor="@color/black"
+                    android:textSize="20sp">
 
                 </TextView>
 
@@ -54,32 +55,32 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
                 android:text="Genre : "
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/date_range"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp">
+                    android:src="@drawable/date_range">
 
                 </ImageView>
 
                 <TextView
+                    android:id="@+id/textViewReleased"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textViewReleased"
                     android:text="date"
-                    android:textSize="20sp"
-                    android:textColor="@color/black">
+                    android:textColor="@color/black"
+                    android:textSize="20sp">
 
                 </TextView>
 
@@ -91,44 +92,45 @@
             android:id="@+id/textViewName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="nameOrginal"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView" />
+
 
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:lines="10"
             android:text="--description--"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="italic"
-            android:lines="10"
-            android:ellipsize="end"
-            android:textColor="@color/black"
-            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lineatLayout" />
-
 
         <TextView
             android:id="@+id/textViewWesite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="website"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:autoLink="web"
-            android:textColor="@color/black"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
+            android:autoLink="web"
+            android:text="website"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewDescription" />
@@ -144,6 +146,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_background" />
 
+
         <ProgressBar
             android:id="@+id/progressBar2"
             style="?android:attr/progressBarStyle"
@@ -153,22 +156,32 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/errorTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Error"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
             android:visibility="gone"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_heart_filled"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="10dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

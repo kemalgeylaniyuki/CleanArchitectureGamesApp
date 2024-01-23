@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.gamelist_viewmodel
+package com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class GamesViewModel @Inject constructor(private val getGameUseCase: GetGameUseCase) : ViewModel() {
+class GamesViewModel @Inject constructor(
+    private val getGameUseCase: GetGameUseCase) : ViewModel() {
 
     private val _state = MutableStateFlow(GamesState())
     val state : StateFlow<GamesState> = _state
@@ -47,6 +48,8 @@ class GamesViewModel @Inject constructor(private val getGameUseCase: GetGameUseC
         }.launchIn(viewModelScope)
 
     }
+
+
 
     fun onEvent(event: GamesEvent){
 
