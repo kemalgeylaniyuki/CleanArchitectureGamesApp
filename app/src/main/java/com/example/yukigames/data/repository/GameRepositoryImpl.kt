@@ -1,5 +1,6 @@
 package com.example.yukigames.data.repository
 
+import android.util.Log
 import com.example.yukigames.data.local.GameDatabase
 import com.example.yukigames.data.remote.GamesAPI
 import com.example.yukigames.data.remote.dto.GameDetailsDTO
@@ -8,6 +9,7 @@ import com.example.yukigames.domain.model.Game
 import com.example.yukigames.domain.model.GameDetails
 import com.example.yukigames.domain.repository.GameRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class GameRepositoryImpl @Inject constructor(
@@ -27,8 +29,21 @@ class GameRepositoryImpl @Inject constructor(
         return api.getGameDetails(id = id)
     }
 
+    override suspend fun getGamesByGenre(genre: String, page : String): GamesDTO {
+        return api.getGamesByGenre(genre = genre, page = page)
+    }
+
     override suspend fun upsert(game: Game) {
         return database.gamesDao().upsert(game)
+    }
+
+    override suspend fun delete(gameId : Int) {
+        return database.gamesDao().deleteGame(gameId)
+
+    }
+
+    override suspend fun getFavoriteGames(): List<Game> {
+        return database.gamesDao().getFavoriteGames()
     }
 
 

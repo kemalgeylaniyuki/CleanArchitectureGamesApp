@@ -14,7 +14,15 @@ interface GameRepository {
 
     suspend fun getGameDetails(id : Int) : GameDetailsDTO
 
+    suspend fun getGamesByGenre(genre : String, page : String) : GamesDTO
+
     suspend fun upsert(game : Game)
+
+    suspend fun delete(gameId : Int)
+
+    suspend fun getFavoriteGames() : List<Game>
+
+
 
 
 }

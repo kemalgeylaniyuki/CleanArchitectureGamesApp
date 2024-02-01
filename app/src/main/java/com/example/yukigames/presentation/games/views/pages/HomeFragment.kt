@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var gamesAdapter : GamesAdapter
-    private val moviesViewModel : GamesViewModel by viewModels()
+    private val gamesViewModel : GamesViewModel by viewModels()
     private var job : Job? = null
 
     override fun onCreateView(
@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
     fun observeViewModel(){
 
         job = viewLifecycleOwner.lifecycleScope.launch {
-            moviesViewModel.state.collect { state ->
+            gamesViewModel.state.collect { state ->
                 // Update UI based on the state
                 binding.progressBar.isVisible = state.isLoading
                 binding.errorView.isVisible = state.error.isNotBlank()

@@ -15,7 +15,7 @@ data class Game(
     val parent_platforms: List<ParentPlatform>?,
     val released: String?,
     @PrimaryKey(autoGenerate = true)
-    var uuid : Int? = null,
+    var uuid : Int = 0,
     val isFavorite: Boolean = false
 
 )

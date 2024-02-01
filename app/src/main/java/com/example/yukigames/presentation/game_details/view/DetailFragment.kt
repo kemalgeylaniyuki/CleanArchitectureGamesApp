@@ -56,9 +56,9 @@ class DetailFragment : Fragment() {
 
         observeViewModel()
 
-        binding.floatingActionButton.setOnClickListener {
+        binding.checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             gameDetailsViewModel.state.value.gameDetails?.let {
-                gameDetailsViewModel.upsertGame(it)
+                gameDetailsViewModel.toggleFavoriteStatus(it, isChecked)
             }
         }
 

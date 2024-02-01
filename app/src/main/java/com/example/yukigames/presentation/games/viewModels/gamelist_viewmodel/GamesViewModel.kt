@@ -2,7 +2,7 @@ package com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.yukigames.domain.use_case.get_games.GetGameUseCase
+import com.example.yukigames.domain.use_case.get_games_from_service.GetGameUseCase
 import com.example.yukigames.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -51,14 +51,14 @@ class GamesViewModel @Inject constructor(
 
 
 
+    /*
     fun onEvent(event: GamesEvent){
-
         when(event){
             is GamesEvent.Games -> {
                 getGames(event.page)
             }
         }
-
     }
+    */
 
 }

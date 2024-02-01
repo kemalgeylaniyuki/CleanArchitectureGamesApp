@@ -29,4 +29,11 @@ interface GamesAPI {
         @Query("key") key : String = API_KEY
     ) : GameDetailsDTO
 
+    @GET("game")
+    suspend fun getGamesByGenre(
+        @Query("key") key : String = API_KEY,
+        @Query("genre") genre : String,
+        @Query("page") page : String
+    ) : GamesDTO
+
 }

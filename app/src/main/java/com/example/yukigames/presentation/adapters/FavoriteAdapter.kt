@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.GamesItem2Binding
 import com.example.yukigames.domain.model.Game
-import com.example.yukigames.presentation.games.views.pages.HomeFragmentDirections
+import com.example.yukigames.presentation.games.views.pages.FavoritesFragmentDirections
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.count
+import kotlinx.coroutines.flow.emptyFlow
 
-class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
+class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
 
     var gameList : List<Game> = emptyList()
 
@@ -18,7 +21,7 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
         notifyDataSetChanged()
     }
 
-    class GamesHolder(val binding : GamesItem2Binding) : RecyclerView.ViewHolder(binding.root){
+    class FavoriteHolder(val binding: GamesItem2Binding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(data : Game){
 
@@ -36,25 +39,22 @@ class GamesAdapter : RecyclerView.Adapter<GamesAdapter.GamesHolder>() {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteHolder {
         val view = GamesItem2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return GamesHolder(view)
+        return FavoriteHolder(view)
     }
 
     override fun getItemCount(): Int {
         return gameList.size
     }
 
-    override fun onBindViewHolder(holder: GamesHolder, position: Int) {
-
+    override fun onBindViewHolder(holder: FavoriteHolder, position: Int) {
         holder.bind(gameList.get(position))
 
         holder.itemView.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(gameList.get(position).id)
+            val action = FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(gameList.get(position).id)
             Navigation.findNavController(it).navigate(action)
         }
-
-
     }
 
 }

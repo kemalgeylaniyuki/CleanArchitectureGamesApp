@@ -12,19 +12,18 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GamesDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun upsert(game : Game)
 
-    /*
-    @Delete
-    suspend fun deleteGame(game: Game)
+
+    @Query("DELETE FROM game WHERE id = :gameId")
+    suspend fun deleteGame(gameId : Int)
 
     @Query("SELECT * FROM game")
-    fun getSavedGames() : Flow<List<Game>>
+    fun getSavedGame() : List<Game>
 
     @Query("SELECT * FROM game WHERE isFavorite = 1")
-    fun getFavoriteGames(): Flow<List<Game>>
+    suspend fun getFavoriteGames(): List<Game>
 
-     */
 
 }
