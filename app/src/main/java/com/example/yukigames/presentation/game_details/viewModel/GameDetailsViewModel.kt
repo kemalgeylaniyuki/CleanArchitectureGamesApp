@@ -80,7 +80,7 @@ class GameDetailsViewModel @Inject constructor(
             else{
                 deleteFavoriteGameUseCase.executeDeleteFavoriteGameUseCase(game.id).collect()
             }
-
-            }
         }
+    }
+
 }

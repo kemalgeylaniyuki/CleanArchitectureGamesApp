@@ -7,5 +7,8 @@ object Constants {
     val API_KEY = "11e5f6d43e034bf98630663142da5f7c"
     val BASE_URL = "https://api.rawg.io/api/"
 
+    val CHECKBOX_PREF = "checkboxPref"
+    val CHECKBOX_STATE_KEY = "checkboxStateKey"
+
 
 }

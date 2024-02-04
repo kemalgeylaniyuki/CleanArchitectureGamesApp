@@ -1,5 +1,6 @@
 package com.example.yukigames.presentation.game_details.view
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,20 +9,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.example.yukigames.R
 import com.example.yukigames.databinding.FragmentGameDetailsBinding
-import com.example.yukigames.domain.model.Game
-import com.example.yukigames.domain.model.GameDetails
-import com.example.yukigames.domain.use_case.upsert_game.UpsertGameUseCase
 import com.example.yukigames.presentation.game_details.viewModel.GameDetailsViewModel
-import com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel.GamesViewModel
-import com.example.yukigames.util.Resource
+import com.example.yukigames.util.Constants.CHECKBOX_PREF
+import com.example.yukigames.util.Constants.CHECKBOX_STATE_KEY
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -56,13 +51,33 @@ class DetailFragment : Fragment() {
 
         observeViewModel()
 
+        // Keep checkbox status
+        val sharedPreferences = requireActivity().getSharedPreferences(CHECKBOX_PREF, Context.MODE_PRIVATE)
+        val savedCheckBoxState = sharedPreferences.getBoolean(getCheckBoxStateKey(id), false)
+        binding.checkBox.isChecked = savedCheckBoxState
+
+
         binding.checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             gameDetailsViewModel.state.value.gameDetails?.let {
                 gameDetailsViewModel.toggleFavoriteStatus(it, isChecked)
+
+                with(sharedPreferences.edit()){
+                    putBoolean(getCheckBoxStateKey(id), isChecked)
+                    apply()
+                }
+
+                if (isChecked) {
+                    Toast.makeText(requireContext(), "Saved to Favorites!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Removed from Favorites!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
+    }
 
+    private fun getCheckBoxStateKey(id: Int): String {
+        return "$CHECKBOX_STATE_KEY$id"
     }
 
     fun observeViewModel(){

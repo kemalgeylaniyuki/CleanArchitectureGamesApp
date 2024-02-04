@@ -40,5 +40,21 @@
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="com.example.yukigames.presentation.games.views.pages.CategoriesFragment"
-        android:label="CategoriesFragment" />
+        android:label="CategoriesFragment" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_gamesByGenreFragment"
+            app:destination="@id/gamesByGenreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamesByGenreFragment"
+        android:name="com.example.yukigames.presentation.games_by_genre.view.GamesByGenreFragment"
+        android:label="GamesByGenreFragment" >
+        <action
+            android:id="@+id/action_gamesByGenreFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+
+        <argument
+            android:name="genre"
+            app:argType="string" />
+    </fragment>
 </navigation>

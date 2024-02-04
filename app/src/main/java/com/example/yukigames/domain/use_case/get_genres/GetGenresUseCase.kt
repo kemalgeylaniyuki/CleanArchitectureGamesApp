@@ -1,7 +1,8 @@
-package com.example.yukigames.domain.use_case.get_games_from_service
+package com.example.yukigames.domain.use_case.get_genres
 
 import com.example.yukigames.data.remote.dto.toGameList
-import com.example.yukigames.domain.model.Game
+import com.example.yukigames.data.remote.dto.toGenreList
+import com.example.yukigames.domain.model.Genres
 import com.example.yukigames.domain.repository.GameRepository
 import com.example.yukigames.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -10,19 +11,19 @@ import retrofit2.HttpException
 import java.io.IOError
 import javax.inject.Inject
 
-class GetGameUseCase @Inject constructor(private val repository: GameRepository) {
+class GetGenresUseCase @Inject constructor(private val repository: GameRepository) {
 
-    fun executeGetGames(page : String) : Flow<Resource<List<Game>>> = flow {
+    fun executeGetGenresUseCase(page : String) : Flow<Resource<List<Genres>>> = flow {
 
         try {
 
             emit(Resource.Loading())
-            val gameList = repository.getGames(page)
-            if (gameList.count != 0){
-                emit(Resource.Success(gameList.toGameList()))
+            val genreList = repository.getGenres(page)
+            if (genreList.count != 0){
+                emit(Resource.Success(genreList.toGenreList()))
             }
             else{
-                emit(Resource.Error(message = "No Game Found!"))
+                emit(Resource.Error(message = "No Genre Found!"))
             }
 
         }

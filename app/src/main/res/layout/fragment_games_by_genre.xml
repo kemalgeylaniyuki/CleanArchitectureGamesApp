@@ -10,7 +10,7 @@
     android:background="#CCD1D1">
 
     <TextView
-        android:id="@+id/errorViewCategory"
+        android:id="@+id/errorViewGameByGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progressBarCategory"
+        android:id="@+id/progressBarGameByGenre"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -47,31 +46,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="20dp"
-                    android:layout_marginVertical="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:text="CATEGORIES"
-                        android:layout_weight="1">
-
-                    </TextView>
-
-
-
-                </LinearLayout>
-
 
                 <androidx.recyclerview.widget.RecyclerView
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:id="@+id/recyclerViewCategories"
+                    android:id="@+id/recyclerViewGameByGenre"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"

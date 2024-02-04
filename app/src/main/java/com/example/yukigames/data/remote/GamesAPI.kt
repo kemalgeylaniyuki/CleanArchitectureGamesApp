@@ -2,6 +2,7 @@ package com.example.yukigames.data.remote
 
 import com.example.yukigames.data.remote.dto.GameDetailsDTO
 import com.example.yukigames.data.remote.dto.GamesDTO
+import com.example.yukigames.data.remote.dto.GenresDTO
 import com.example.yukigames.util.Constants.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -35,5 +36,11 @@ interface GamesAPI {
         @Query("genre") genre : String,
         @Query("page") page : String
     ) : GamesDTO
+
+    @GET("genres")
+    suspend fun getGenres(
+        @Query("key") key : String = API_KEY,
+        @Query("page") page : String
+    ) : GenresDTO
 
 }
