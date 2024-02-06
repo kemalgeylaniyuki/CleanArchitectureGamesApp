@@ -52,6 +52,8 @@ class HomeFragment : Fragment() {
 
         job = viewLifecycleOwner.lifecycleScope.launch {
             gamesViewModel.state.collect { state ->
+
+                println("ViewModel - State collected: $state")
                 // Update UI based on the state
                 binding.progressBar.isVisible = state.isLoading
                 binding.errorView.isVisible = state.error.isNotBlank()

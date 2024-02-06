@@ -29,9 +29,7 @@ class SearchFragment : Fragment() {
 
     private lateinit var searchedGamesAdapter: SearchedGamesAdapter
     private val searchViewModel : SearchViewModel by viewModels()
-    private val gameDetailsViewModel : GameDetailsViewModel by viewModels()
     private var job : Job? = null
-    private var id = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,12 +43,6 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        arguments?.let {
-            id = DetailFragmentArgs.fromBundle(it).id
-        }
-
-        gameDetailsViewModel.getGameDetails(id)
 
         binding.recyclerViewSearching.layoutManager = LinearLayoutManager(context)
         searchedGamesAdapter = SearchedGamesAdapter()

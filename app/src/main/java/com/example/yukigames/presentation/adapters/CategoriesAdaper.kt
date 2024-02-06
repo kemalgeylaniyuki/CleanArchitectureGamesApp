@@ -22,7 +22,6 @@ class CategoriesAdaper : RecyclerView.Adapter<CategoriesAdaper.CategoryHolder>()
 
         fun bind(data : Genres){
 
-            //binding.txtTitle.text = data.genres?.joinToString(", ") { it.name }
             binding.txtTitle.text = data.name
             Glide.with(binding.posterView)
                 .load(data.image_background)
@@ -47,7 +46,7 @@ class CategoriesAdaper : RecyclerView.Adapter<CategoriesAdaper.CategoryHolder>()
 
 
         holder.itemView.setOnClickListener {
-            val action = CategoriesFragmentDirections.actionCategoriesFragmentToGamesByGenreFragment(cagetoriesList.get(position).name)
+            val action = CategoriesFragmentDirections.actionCategoriesFragmentToGamesByGenreFragment(cagetoriesList.get(position).slug)
             Navigation.findNavController(it).navigate(action)
         }
 

@@ -7,7 +7,7 @@ import com.example.yukigames.data.local.Converters
 import com.example.yukigames.data.local.GameDatabase
 import com.example.yukigames.data.local.GamesDao
 import com.example.yukigames.data.remote.GamesAPI
-import com.example.yukigames.data.repository.GameRepositoryImpl
+import com.example.yukigames.data.repository_impl.GameRepositoryImpl
 import com.example.yukigames.domain.repository.GameRepository
 import com.example.yukigames.util.Constants
 import com.example.yukigames.util.Constants.BASE_URL

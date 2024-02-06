@@ -38,7 +38,7 @@ class SearchedGamesAdapter : RecyclerView.Adapter<SearchedGamesAdapter.SearchedG
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchedGamesHolder {
         val view = SearchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SearchedGamesAdapter.SearchedGamesHolder(view)
+        return SearchedGamesHolder(view)
     }
 
     override fun getItemCount(): Int {

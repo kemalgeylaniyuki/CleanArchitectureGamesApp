@@ -15,6 +15,7 @@ fun GenresDTO.toGenreList() : List<Genres> {
         result.games_count,
         result.id,
         result.image_background,
-        result.name
+        result.name,
+        result.slug
     ) }
 }

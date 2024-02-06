@@ -21,6 +21,9 @@ class GetGamesByGenreUseCase @Inject constructor(private val repository: GameRep
             if(gameList.count != 0){
                 emit(Resource.Success(gameList.toGameList()))
             }
+            else{
+                emit(Resource.Error(message = "No Game Found!"))
+            }
         }
         catch (e : IOError){
             emit(Resource.Error(message = "No Internet Connection!"))
