@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.views.pages
+package com.example.yukigames.presentation.main.views.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yukigames.databinding.FragmentFavoritesBinding
 import com.example.yukigames.presentation.adapters.FavoriteAdapter
-import com.example.yukigames.presentation.games.viewModels.favorite_games_viewmodel.FavoriteViewModel
+import com.example.yukigames.presentation.main.viewmodels.favorite_viewmodel.FavoriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

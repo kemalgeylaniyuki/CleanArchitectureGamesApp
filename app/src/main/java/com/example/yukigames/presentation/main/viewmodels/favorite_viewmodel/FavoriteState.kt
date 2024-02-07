@@ -1,8 +1,6 @@
-package com.example.yukigames.presentation.games.viewModels.favorite_games_viewmodel
+package com.example.yukigames.presentation.main.viewmodels.favorite_viewmodel
 
 import com.example.yukigames.domain.model.Game
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
 
 data class FavoriteState (
 

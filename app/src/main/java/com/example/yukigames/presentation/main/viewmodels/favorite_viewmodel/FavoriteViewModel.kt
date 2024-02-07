@@ -1,15 +1,13 @@
-package com.example.yukigames.presentation.games.viewModels.favorite_games_viewmodel
+package com.example.yukigames.presentation.main.viewmodels.favorite_viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.yukigames.domain.use_case.get_games_from_favorites.GetGamesFromFavoritesUseCase
-import com.example.yukigames.presentation.games.viewModels.gamelist_viewmodel.GamesState
 import com.example.yukigames.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject

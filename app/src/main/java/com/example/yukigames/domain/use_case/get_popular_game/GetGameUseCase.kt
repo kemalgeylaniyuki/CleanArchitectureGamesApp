@@ -1,4 +1,4 @@
-package com.example.yukigames.domain.use_case.get_games_from_service
+package com.example.yukigames.domain.use_case.get_popular_game
 
 import com.example.yukigames.data.remote.dto.toGameList
 import com.example.yukigames.domain.model.Game
@@ -10,14 +10,14 @@ import retrofit2.HttpException
 import java.io.IOError
 import javax.inject.Inject
 
-class GetGameUseCase @Inject constructor(private val repository: GameRepository) {
+class GetPopularGameUseCase @Inject constructor(private val repository: GameRepository) {
 
-    fun executeGetGames(page : String) : Flow<Resource<List<Game>>> = flow {
+    fun executeGetPopularGames(page : String) : Flow<Resource<List<Game>>> = flow {
 
         try {
 
             emit(Resource.Loading())
-            val gameList = repository.getGames(page)
+            val gameList = repository.getPopularGames(page)
             if (gameList.count != 0){
                 emit(Resource.Success(gameList.toGameList()))
             }

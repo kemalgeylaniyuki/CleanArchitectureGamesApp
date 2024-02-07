@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.yukigames.databinding.GamesItem2Binding
+import com.example.yukigames.databinding.RecentItemBinding
 import com.example.yukigames.domain.model.Game
 import com.example.yukigames.presentation.games_by_genre.view.GamesByGenreFragmentDirections
 
@@ -18,7 +18,7 @@ class GamesByGenreAdapter : RecyclerView.Adapter<GamesByGenreAdapter.GamesByGenr
         notifyDataSetChanged()
     }
 
-    class GamesByGenreHolder(val binding : GamesItem2Binding) : RecyclerView.ViewHolder(binding.root){
+    class GamesByGenreHolder(val binding : RecentItemBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(data : Game){
 
@@ -37,7 +37,7 @@ class GamesByGenreAdapter : RecyclerView.Adapter<GamesByGenreAdapter.GamesByGenr
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesByGenreHolder {
-        val view = GamesItem2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = RecentItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return GamesByGenreHolder(view)
     }
 
@@ -53,8 +53,6 @@ class GamesByGenreAdapter : RecyclerView.Adapter<GamesByGenreAdapter.GamesByGenr
             val action = GamesByGenreFragmentDirections.actionGamesByGenreFragmentToDetailFragment(list.get(position).id)
             Navigation.findNavController(it).navigate(action)
         }
-
-
     }
 
 }

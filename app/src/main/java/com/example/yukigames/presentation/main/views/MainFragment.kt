@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.views
+package com.example.yukigames.presentation.main.views
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -14,8 +14,12 @@ class GameRepositoryImpl @Inject constructor(
     private val database: GameDatabase
 
 ) : GameRepository {
-    override suspend fun getGames(page: String): GamesDTO {
-        return api.getGames(page = page)
+    override suspend fun getPopularGames(page: String): GamesDTO {
+        return api.getPopularGames(page = page)
+    }
+
+    override suspend fun getRecentGames(page: String, dates: String, ordering: String) : GamesDTO {
+        return api.getRecentGames(page = page, dates = dates, ordering = ordering)
     }
 
     override suspend fun searchGames(search: String): GamesDTO {

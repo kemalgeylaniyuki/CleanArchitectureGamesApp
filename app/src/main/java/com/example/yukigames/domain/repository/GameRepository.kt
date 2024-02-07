@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface GameRepository {
 
-    suspend fun getGames(page : String) : GamesDTO
+    suspend fun getPopularGames(page : String) : GamesDTO
+
+    suspend fun getRecentGames(page : String, dates : String, ordering : String) : GamesDTO
 
     suspend fun searchGames(search : String) : GamesDTO
 

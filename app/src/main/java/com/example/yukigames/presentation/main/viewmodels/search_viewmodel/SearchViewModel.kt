@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.viewModels.search_viewmodel
+package com.example.yukigames.presentation.main.viewmodels.search_viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

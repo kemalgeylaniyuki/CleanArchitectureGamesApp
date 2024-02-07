@@ -13,9 +13,17 @@ interface GamesAPI {
     //https://api.rawg.io/api/games?key=11e5f6d43e034bf98630663142da5f7c
 
     @GET("games")
-    suspend fun getGames(
+    suspend fun getPopularGames(
         @Query("key") key : String = API_KEY,
         @Query("page") page : String
+    ) : GamesDTO
+
+    @GET("games")
+    suspend fun getRecentGames(
+        @Query("key") key : String = API_KEY,
+        @Query("page") page : String,
+        @Query("dates") dates : String,
+        @Query("ordering") ordering : String
     ) : GamesDTO
 
     @GET("games")

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.GamesItem1Binding
 import com.example.yukigames.domain.model.Genres
-import com.example.yukigames.presentation.games.views.pages.CategoriesFragmentDirections
+import com.example.yukigames.presentation.main.views.pages.CategoriesFragmentDirections
 
 class CategoriesAdaper : RecyclerView.Adapter<CategoriesAdaper.CategoryHolder>() {
 

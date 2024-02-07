@@ -1,4 +1,4 @@
-package com.example.yukigames.presentation.games.views.pages
+package com.example.yukigames.presentation.main.views.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,13 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yukigames.databinding.FragmentSearchBinding
 import com.example.yukigames.presentation.adapters.SearchedGamesAdapter
-import com.example.yukigames.presentation.game_details.view.DetailFragmentArgs
-import com.example.yukigames.presentation.game_details.viewModel.GameDetailsViewModel
-import com.example.yukigames.presentation.games.viewModels.search_viewmodel.SearchEvent
-import com.example.yukigames.presentation.games.viewModels.search_viewmodel.SearchViewModel
+import com.example.yukigames.presentation.main.viewmodels.search_viewmodel.SearchEvent
+import com.example.yukigames.presentation.main.viewmodels.search_viewmodel.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
