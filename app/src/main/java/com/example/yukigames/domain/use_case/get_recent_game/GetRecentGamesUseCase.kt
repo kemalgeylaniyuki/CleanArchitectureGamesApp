@@ -1,5 +1,7 @@
 package com.example.yukigames.domain.use_case.get_recent_game
 
+import android.util.Log
+import androidx.paging.PagingData
 import com.example.yukigames.data.remote.dto.toGameList
 import com.example.yukigames.domain.model.Game
 import com.example.yukigames.domain.repository.GameRepository
@@ -34,4 +36,10 @@ class GetRecentGamesUseCase @Inject constructor(private val repository: GameRepo
         }
 
     }
+
+    /*
+    fun executeGetRecentGamesPagingUseCase(dates: String, ordering: String): Flow<PagingData<Game>> {
+        return repository.getRecentGamesPaging(dates, ordering).flow
+    }
+    */
 }

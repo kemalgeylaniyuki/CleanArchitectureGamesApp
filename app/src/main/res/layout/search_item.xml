@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="15dp">
 
 
     <androidx.cardview.widget.CardView
@@ -35,7 +35,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtTitleSearch"
             android:layout_marginBottom="4dp"
-            android:text="Title">
+            android:text="Title"
+            android:textSize="18dp"
+            android:textColor="@color/black">
 
         </TextView>
 
@@ -44,7 +46,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtGenreSearch"
             android:layout_marginBottom="4dp"
-            android:text="Genre">
+            android:text="Genre"
+            android:textColor="@color/black">
 
         </TextView>
 
@@ -53,7 +56,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtReleaseDateSearch"
             android:layout_marginBottom="4dp"
-            android:text="2022-01-01">
+            android:text="2022-01-01"
+            android:textColor="@color/black">
 
         </TextView>
 
@@ -76,7 +80,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtVoteAverageSearch"
                 android:layout_marginBottom="4dp"
-                android:text="8/10">
+                android:text="8/10"
+                android:textColor="@color/black">
 
             </TextView>
 

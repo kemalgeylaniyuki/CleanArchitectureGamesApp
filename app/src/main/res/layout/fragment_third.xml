@@ -17,15 +17,15 @@
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/category1">
+            android:src="@drawable/serach1">
 
         </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Category"
-
+            android:text="Navigate Your World"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold">
 
@@ -39,8 +39,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="categories"
+            android:text="Effortless exploration with powerful search"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20sp">
 
         </TextView>

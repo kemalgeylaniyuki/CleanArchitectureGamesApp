@@ -3,6 +3,8 @@ package com.example.yukigames.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.PopularItemBinding
@@ -27,7 +29,7 @@ class RecentAdapter : RecyclerView.Adapter<RecentAdapter.RecentHolder>() {
             binding.txtGenre.text = data.genres?.joinToString(", ") { it.name }
             binding.txtPlatform.text = data.parent_platforms?.joinToString(", ") { it.platform.name }
             binding.txtReleaseDate.text = data.released
-            binding.txtVoteAverage.text = data.rating.toString() + "/10"
+            binding.txtVoteAverage.text = data.rating.toString() + "/5"
 
             Glide.with(binding.posterView)
                 .load(data.background_image)
@@ -55,5 +57,17 @@ class RecentAdapter : RecyclerView.Adapter<RecentAdapter.RecentHolder>() {
             Navigation.findNavController(it).navigate(action)
         }
     }
+
+    /*
+    private class GameDiffCallback : DiffUtil.ItemCallback<Game>() {
+        override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean {
+            return oldItem == newItem
+        }
+    }
+    */
 
 }

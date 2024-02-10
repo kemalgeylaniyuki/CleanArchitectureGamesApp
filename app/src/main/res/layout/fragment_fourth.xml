@@ -17,14 +17,15 @@
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/serach1">
+            android:src="@drawable/category1">
 
         </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search"
+            android:text="Discover Your Interests"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold">
 
@@ -38,11 +39,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="search"
+            android:text="Explore games tailored to your interests"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20sp">
 
         </TextView>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="10dp">
+        </Space>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"
+            android:background="@drawable/ic_rounded"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/arrow_forward">
+
+            </ImageView>
+
+        </RelativeLayout>
 
     </LinearLayout>
 

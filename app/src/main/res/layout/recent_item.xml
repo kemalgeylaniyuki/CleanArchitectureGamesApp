@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="15dp">
         
 
             <androidx.cardview.widget.CardView
@@ -35,7 +35,9 @@
                android:layout_height="wrap_content"
                android:id="@+id/txtTitle"
                android:layout_marginBottom="4dp"
-               android:text="Title">
+               android:text="Title"
+               android:textSize="18dp"
+               android:textColor="@color/black">
 
            </TextView>
 
@@ -44,7 +46,10 @@
                android:layout_height="wrap_content"
                android:id="@+id/txtGenre"
                android:layout_marginBottom="4dp"
-               android:text="Genre">
+               android:text="Genre"
+               android:singleLine="true"
+               android:ellipsize="end"
+               android:textColor="@color/black">
 
            </TextView>
 
@@ -53,6 +58,9 @@
                android:layout_height="wrap_content"
                android:id="@+id/txtPlatform"
                android:text="Platform"
+               android:singleLine="true"
+               android:ellipsize="end"
+               android:textColor="@color/black"
                android:layout_marginBottom="4dp">
 
            </TextView>
@@ -62,7 +70,8 @@
                android:layout_height="wrap_content"
                android:id="@+id/txtReleaseDate"
                android:layout_marginBottom="4dp"
-               android:text="2022-01-01">
+               android:text="2022-01-01"
+               android:textColor="@color/black">
 
            </TextView>
 
@@ -85,7 +94,8 @@
                    android:layout_height="wrap_content"
                    android:id="@+id/txtVoteAverage"
                    android:layout_marginBottom="4dp"
-                   android:text="8/10">
+                   android:text="8/10"
+                   android:textColor="@color/black">
 
                </TextView>
 

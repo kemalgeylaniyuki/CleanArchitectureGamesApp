@@ -2,6 +2,7 @@ package com.example.yukigames.presentation.main.viewmodels.home_viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.map
 import com.example.yukigames.domain.use_case.get_popular_game.GetPopularGameUseCase
 import com.example.yukigames.domain.use_case.get_recent_game.GetRecentGamesUseCase
 import com.example.yukigames.util.Resource
@@ -20,26 +21,27 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _state_popular = MutableStateFlow(PopularState())
-    val statePopular : StateFlow<PopularState> = _state_popular
+    val statePopular: StateFlow<PopularState> = _state_popular
 
     private val _state_recent = MutableStateFlow(RecentState())
-    val stateRecent : StateFlow<RecentState> = _state_recent
+    val stateRecent: StateFlow<RecentState> = _state_recent
 
-    private var job1 : Job? = null
-    private var job2 : Job? = null
+    private var job1: Job? = null
+    private var job2: Job? = null
 
     init {
         getPopularGames(_state_popular.value.page)
         getRecentGames(_state_recent.value.page, _state_recent.value.dates, _state_recent.value.ordering)
+        //getRecentGamesPaging(_state_recent.value.dates, _state_recent.value.ordering)
     }
 
-    private fun getPopularGames(page : String){
+    private fun getPopularGames(page : String) {
 
         job1?.cancel()
 
         job1 = getGameUseCase.executeGetPopularGames(page = page).onEach {
 
-            when(it){
+            when (it) {
 
                 is Resource.Success -> {
                     _state_popular.value = PopularState(popularGames = it.data ?: emptyList())
@@ -54,16 +56,16 @@ class HomeViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
-
     }
 
-    private fun getRecentGames(page : String, dates : String, ordering : String){
+
+    private fun getRecentGames(page: String, dates: String, ordering: String) {
 
         job2?.cancel()
 
-        job2 = getRecentGamesUseCase.executeGetRecentGamesUseCase(page,dates, ordering).onEach {
+        job2 = getRecentGamesUseCase.executeGetRecentGamesUseCase(page, dates, ordering).onEach {
 
-            when(it){
+            when (it) {
 
                 is Resource.Success -> {
                     _state_recent.value = RecentState(recentGames = it.data ?: emptyList())
@@ -82,9 +84,23 @@ class HomeViewModel @Inject constructor(
 
     }
 
+        /*
+    fun getRecentGamesPaging(dates: String, ordering: String) {
+        job2?.cancel()
 
+        job2 = getRecentGamesUseCase.executeGetRecentGamesPagingUseCase(dates, ordering)
+            .onEach { pagingData ->
 
-    /*
+                _state_recent.value = _state_recent.value.copy(
+                    recentGames = pagingData.map { it },
+                    isLoading = false,
+                    error = ""
+                )
+            }.launchIn(viewModelScope)
+    }
+    */
+
+        /*
     fun onEvent(event: GamesEvent){
         when(event){
             is GamesEvent.Games -> {
@@ -95,3 +111,6 @@ class HomeViewModel @Inject constructor(
     */
 
 }
+
+
+

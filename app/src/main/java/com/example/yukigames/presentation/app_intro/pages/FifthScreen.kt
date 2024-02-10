@@ -50,15 +50,18 @@ class FifthScreen : Fragment() {
         }
          */
 
+        /*
         binding.next.setOnClickListener {
             findNavController().navigate(R.id.action_appIntroFragment_to_mainFragment)
         }
+        */
 
         return view
     }
 
     override fun onResume() {
 
+        /*
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
         val prevButton = activity?.findViewById<RelativeLayout>(R.id.prevButton)
         val nextButton = activity?.findViewById<RelativeLayout>(R.id.nextButton)
@@ -69,6 +72,7 @@ class FifthScreen : Fragment() {
         prevButton?.setOnClickListener {
             viewPager?.currentItem = 3
         }
+        */
 
         super.onResume()
     }

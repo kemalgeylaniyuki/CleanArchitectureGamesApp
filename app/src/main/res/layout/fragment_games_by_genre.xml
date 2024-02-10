@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.activitiy.Games"
-    android:background="#CCD1D1">
+    android:background="#F5EEF8">
 
     <TextView
         android:id="@+id/errorViewGameByGenre"
@@ -53,6 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
                     />
 
             </LinearLayout>

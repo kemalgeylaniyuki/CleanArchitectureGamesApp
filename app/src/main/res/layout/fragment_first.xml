@@ -17,14 +17,15 @@
         <ImageView
             android:layout_width="360dp"
             android:layout_height="200dp"
-            android:src="@drawable/database1">
+            android:src="@drawable/games1">
 
         </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Offline Database"
+            android:text="Millions of Games"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold">
 
@@ -38,8 +39,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create your own favorite list without internet"
+            android:text="Reach millions of games instantly"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20sp">
 
         </TextView>

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.activitiy.Games"
-    android:background="#CCD1D1">
+    android:background="#F5EEF8">
 
     <TextView
         android:id="@+id/errorViewCategory"
@@ -47,34 +47,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="20dp"
-                    android:layout_marginVertical="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:text="CATEGORIES"
-                        android:layout_weight="1">
-
-                    </TextView>
-
-
-
-                </LinearLayout>
-
-
                 <androidx.recyclerview.widget.RecyclerView
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:id="@+id/recyclerViewCategories"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
                     />
 
             </LinearLayout>

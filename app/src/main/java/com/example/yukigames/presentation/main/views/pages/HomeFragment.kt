@@ -47,6 +47,8 @@ class HomeFragment : Fragment() {
 
         observeViewModel()
 
+        //gamesViewModel.getRecentGamesPaging("2020-02-01,2024-03-01", "-released")
+
     }
 
     fun recyclerViewUpdates(){
@@ -90,6 +92,18 @@ class HomeFragment : Fragment() {
             }
         }
 
+        /*
+        job2 = viewLifecycleOwner.lifecycleScope.launch {
+            gamesViewModel.stateRecent.collect { recent ->
+
+                binding.progressBar.isVisible = recent.isLoading
+                binding.errorView.isVisible = recent.error.isNotBlank()
+                binding.errorView.text = recent.error
+
+                recentAdapter.submitData(viewLifecycleOwner.lifecycle, recent.recentGames)
+            }
+        }
+        */
     }
 
     override fun onDestroy() {

@@ -95,4 +95,7 @@ dependencies {
 
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
+    implementation ("androidx.paging:paging-runtime:3.2.1")
+
+
 }

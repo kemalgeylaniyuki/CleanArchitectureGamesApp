@@ -41,7 +41,7 @@ class SplashFragment : Fragment() {
                 findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
             }
 
-        }, 1000)
+        }, 5000)
 
 
         return view

@@ -87,8 +87,9 @@ class DetailFragment : Fragment() {
 
                 it.gameDetails?.let {
                     binding.textViewName.text = it.name_original
-                    binding.textViewDescription.text = "Description : " + it.description_raw
-                    binding.textViewGenres.text = it.genres?.joinToString(", ") { it.name }
+                    binding.textViewDescription.text = "DESCRIPTION :   " + it.description_raw
+                    binding.categoryText.text = it.genres?.joinToString(", ") { it.name }
+                    binding.platformText.text = it.parent_platforms?.joinToString(", " ) { it.platform.name }
                     binding.textViewReleased.text = it.released
 
                     val formattedRating : String = "%.1f".format(it.rating)
