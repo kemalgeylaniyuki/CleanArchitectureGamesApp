@@ -9,17 +9,19 @@
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_2.png" alt="project-screenshot" width="201" height="400/">
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_3.png" alt="project-screenshot" width="200" height="400/">
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_4.png" alt="project-screenshot" width="200" height="400/">
+  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/splash.png" alt="project-screenshot" width="200" height="400/">
 </div>
 
-<img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/splash.png" alt="project-screenshot" width="200" height="400/">
+
 
 <div style="display: flex; gap: 10px;">
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/home.png" alt="project-screenshot" width="200" height="400/">
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/favorites.png" alt="project-screenshot" width="200" height="400/">
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/search.png" alt="project-screenshot" width="200" height="400/">
   <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/categories.png" alt="project-screenshot" width="200" height="400/">
+  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/details.png" alt="project-screenshot" width="200" height="400/">
 </div>
-<img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/details.png" alt="project-screenshot" width="200" height="400/">
+
 
 <h2>🧐 Features</h2>
 
