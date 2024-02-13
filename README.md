@@ -50,7 +50,7 @@ Technologies used in the project:
 *   Viewbinding
 *   Glide
 
-<h2>💎Kotlin Clean Architecture</h2>
+<h2>💎Clean Architecture</h2>
 
 <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/YUKI-GAMES/master/app/cleanArc.png" alt="project-screenshot" width="400" height="300/">
 
@@ -68,7 +68,7 @@ Data retrieval and sending processes occur in this layer.
 It is the layer that houses the core business logic of the application. Business rules, entities, and use cases are defined here.
 
 <h3>Entity</h3>
-This layer includes the fundamental data structures of the application. 
+Entity includes the fundamental data structures of the application. 
 It typically represents objects retrieved from the database and interacts with the domain layer.
 
 <h3>Presenter Layer</h3>
