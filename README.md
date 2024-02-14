@@ -27,10 +27,20 @@
 
 Here're some of the project's best features:
 
-*   Reach millions of games instantly
-*   Create your own favorite list without internet
-*   Effortless exploration with powerful search
-*   Explore games tailored to your interests
+* 🔍 Home
+  - On the home page, you'll find a list of the most popular and the newest games in the gaming world. Follow the trends or explore the latest releases.
+    
+* 🎮 Game Details
+  - You can access detailed information of the game and learn more about the game. Also on the detail page of each game, you'll find a checkbox to add or remove it from your favorites.
+    
+* ⭐ Favorites
+    - On the favorites page, your chosen games are listed in a special way. There's no chance of forgetting which games you love!
+      
+* 🔎 Search
+  - Use the search page to easily find the game you're looking for. Search results dynamically update based on the keywords you type. Finding lost games is now easier than ever!
+    
+* 📂 Category
+  - On the category page, you can filter games by categories. Click on a category you're interested in, and the games belonging to that category will be listed. Exciting thematic discoveries await you!  
   
   
 <h2>💻 Built with</h2>
