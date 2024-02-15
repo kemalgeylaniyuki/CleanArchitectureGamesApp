@@ -27,7 +27,7 @@
 
 Here're some of the project's best features:
 
-* 🔍 Home
+* 🏠 Home
   - On the home page, you'll find a list of the most popular and the newest games in the gaming world. Follow the trends or explore the latest releases.
     
 * 🎮 Game Details
