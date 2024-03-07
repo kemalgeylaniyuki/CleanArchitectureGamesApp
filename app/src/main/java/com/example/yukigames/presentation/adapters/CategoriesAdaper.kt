@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.GamesItem1Binding
 import com.example.yukigames.domain.model.Genres
-import com.example.yukigames.presentation.main.views.pages.CategoriesFragmentDirections
+import com.example.yukigames.presentation.main_fragment.views.pages.CategoriesFragmentDirections
 
 class CategoriesAdaper : RecyclerView.Adapter<CategoriesAdaper.CategoryHolder>() {
 
@@ -44,9 +44,8 @@ class CategoriesAdaper : RecyclerView.Adapter<CategoriesAdaper.CategoryHolder>()
 
         holder.bind(cagetoriesList.get(position))
 
-
         holder.itemView.setOnClickListener {
-            val action = CategoriesFragmentDirections.actionCategoriesFragmentToGamesByGenreFragment(cagetoriesList.get(position).slug)
+            val action = CategoriesFragmentDirections.actionCategoriesFragmentToGamesByCategoryFragment(cagetoriesList.get(position).slug)
             Navigation.findNavController(it).navigate(action)
         }
 

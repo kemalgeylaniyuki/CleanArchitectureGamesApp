@@ -15,7 +15,6 @@ import com.example.yukigames.presentation.game_details.viewModel.GameDetailsView
 import com.example.yukigames.util.Constants.CHECKBOX_PREF
 import com.example.yukigames.util.Constants.CHECKBOX_STATE_KEY
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -25,7 +24,7 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val gameDetailsViewModel : GameDetailsViewModel by viewModels()
-    private var job : Job? = null
+
     private var id = 0
 
 
@@ -82,12 +81,12 @@ class DetailFragment : Fragment() {
 
     fun observeViewModel(){
 
-        job = viewLifecycleOwner.lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             gameDetailsViewModel.state.collect{
 
                 it.gameDetails?.let {
                     binding.textViewName.text = it.name_original
-                    binding.textViewDescription.text = "DESCRIPTION :   " + it.description_raw
+                    binding.textViewDescription.text = it.description_raw
                     binding.categoryText.text = it.genres?.joinToString(", ") { it.name }
                     binding.platformText.text = it.parent_platforms?.joinToString(", " ) { it.platform.name }
                     binding.textViewReleased.text = it.released
@@ -95,7 +94,9 @@ class DetailFragment : Fragment() {
                     val formattedRating : String = "%.1f".format(it.rating)
                     binding.textViewRating.text = formattedRating
 
-                    binding.textViewWesite.text = it.website
+                    binding.addedText.text = it.added.toString()
+
+                    binding.textViewWebsite.text = it.website
 
                     Glide.with(binding.imageView)
                         .load(it.background_image)
@@ -127,7 +128,6 @@ class DetailFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        job?.cancel()
         _binding = null
     }
 

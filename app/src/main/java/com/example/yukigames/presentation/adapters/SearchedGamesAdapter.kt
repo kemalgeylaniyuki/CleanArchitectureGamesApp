@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.SearchItemBinding
 import com.example.yukigames.domain.model.Game
-import com.example.yukigames.presentation.main.views.pages.SearchFragmentDirections
+import com.example.yukigames.presentation.main_fragment.views.pages.SearchFragmentDirections
 
 class SearchedGamesAdapter : RecyclerView.Adapter<SearchedGamesAdapter.SearchedGamesHolder>() {
 

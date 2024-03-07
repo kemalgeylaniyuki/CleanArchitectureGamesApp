@@ -60,5 +60,5 @@ data class GameDetailsDTO(
 )
 
 fun GameDetailsDTO.toGameDetails() : GameDetails{
-    return GameDetails(background_image,description_raw,genres,id,name_original,rating,released,website,youtube_count,parent_platforms)
+    return GameDetails(background_image,description_raw,genres,id,name_original,rating,released,website,youtube_count,parent_platforms,added)
 }

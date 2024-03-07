@@ -74,6 +74,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
                     android:id="@+id/recyclerViewPopular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -111,7 +112,8 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
                     android:layout_marginTop="10dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"/>
 
             </LinearLayout>
 

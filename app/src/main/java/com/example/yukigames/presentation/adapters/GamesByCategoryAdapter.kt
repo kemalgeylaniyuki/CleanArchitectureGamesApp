@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.RecentItemBinding
 import com.example.yukigames.domain.model.Game
-import com.example.yukigames.presentation.main_fragment.views.pages.FavoritesFragmentDirections
+import com.example.yukigames.presentation.games_by_category.view.GamesByCategoryFragmentDirections
 
-class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
+class GamesByCategoryAdapter : RecyclerView.Adapter<GamesByCategoryAdapter.GamesByCategoryHolder>() {
 
-    var gameList : List<Game> = emptyList()
+    var list : List<Game> = emptyList()
 
-    fun setList(gameList : List<Game>){
-        this.gameList = gameList
+    fun setGamesByCategoryList(newList : List<Game>){
+        this.list = newList
         notifyDataSetChanged()
     }
 
-    class FavoriteHolder(val binding: RecentItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class GamesByCategoryHolder(val binding : RecentItemBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(data : Game){
 
@@ -36,20 +36,22 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesByCategoryHolder {
         val view = RecentItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FavoriteHolder(view)
+        return GamesByCategoryHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return gameList.size
+        return list.size
     }
 
-    override fun onBindViewHolder(holder: FavoriteHolder, position: Int) {
-        holder.bind(gameList.get(position))
+    override fun onBindViewHolder(holder: GamesByCategoryHolder, position: Int) {
+
+        holder.bind(list.get(position))
 
         holder.itemView.setOnClickListener {
-            val action = FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(gameList.get(position).id)
+
+            val action = GamesByCategoryFragmentDirections.actionGamesByCategoryFragmentToDetailFragment(list.get(position).id)
             Navigation.findNavController(it).navigate(action)
         }
     }

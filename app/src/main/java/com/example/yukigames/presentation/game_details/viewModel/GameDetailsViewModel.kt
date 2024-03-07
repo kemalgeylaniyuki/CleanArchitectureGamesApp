@@ -1,12 +1,9 @@
 package com.example.yukigames.presentation.game_details.viewModel
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.yukigames.domain.model.Game
 import com.example.yukigames.domain.model.GameDetails
-import com.example.yukigames.domain.repository.GameRepository
 import com.example.yukigames.domain.use_case.delete_game.DeleteFavoriteGameUseCase
 import com.example.yukigames.domain.use_case.get_game_details.GetGameDetailsUseCase
 import com.example.yukigames.domain.use_case.upsert_game.UpsertGameUseCase
@@ -28,8 +25,8 @@ class GameDetailsViewModel @Inject constructor(
     private val deleteFavoriteGameUseCase: DeleteFavoriteGameUseCase
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(GameDetailsState())
-    val state : StateFlow<GameDetailsState> = _state
+    private val _state = MutableStateFlow(GameDetailsModel())
+    val state : StateFlow<GameDetailsModel> = _state
 
 
     private var job : Job? = null
@@ -43,15 +40,15 @@ class GameDetailsViewModel @Inject constructor(
             when(it){
 
                 is Resource.Success -> {
-                    _state.value = GameDetailsState(gameDetails = it.data)
+                    _state.value = GameDetailsModel(gameDetails = it.data)
                 }
 
                 is Resource.Loading -> {
-                    _state.value = GameDetailsState(isLoading = true)
+                    _state.value = GameDetailsModel(isLoading = true)
                 }
 
                 is Resource.Error -> {
-                    _state.value = GameDetailsState(error = it.message ?: "Error!")
+                    _state.value = GameDetailsModel(error = it.message ?: "Error!")
                 }
 
             }

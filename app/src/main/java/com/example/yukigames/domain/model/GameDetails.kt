@@ -16,5 +16,6 @@ data class GameDetails(
     val released: String?,
     val website: String?,
     val youtube_count: Int?,
-    val parent_platforms: List<ParentPlatform>
+    val parent_platforms: List<ParentPlatform>,
+    val added: Int,
 )

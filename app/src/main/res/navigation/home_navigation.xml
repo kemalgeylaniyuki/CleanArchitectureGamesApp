@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.yukigames.presentation.main.views.pages.HomeFragment"
+        android:name="com.example.yukigames.presentation.main_fragment.views.pages.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.yukigames.presentation.main.views.pages.FavoritesFragment"
+        android:name="com.example.yukigames.presentation.main_fragment.views.pages.FavoritesFragment"
         android:label="FavoritesFragment" >
         <action
             android:id="@+id/action_favoritesFragment_to_detailFragment"
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.yukigames.presentation.main.views.pages.SearchFragment"
+        android:name="com.example.yukigames.presentation.main_fragment.views.pages.SearchFragment"
         android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_detailFragment"
@@ -39,20 +39,19 @@
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="com.example.yukigames.presentation.main.views.pages.CategoriesFragment"
+        android:name="com.example.yukigames.presentation.main_fragment.views.pages.CategoriesFragment"
         android:label="CategoriesFragment" >
         <action
-            android:id="@+id/action_categoriesFragment_to_gamesByGenreFragment"
-            app:destination="@id/gamesByGenreFragment" />
+            android:id="@+id/action_categoriesFragment_to_gamesByCategoryFragment"
+            app:destination="@id/gamesByCategoryFragment" />
     </fragment>
     <fragment
-        android:id="@+id/gamesByGenreFragment"
-        android:name="com.example.yukigames.presentation.games_by_genre.view.GamesByGenreFragment"
-        android:label="GamesByGenreFragment" >
+        android:id="@+id/gamesByCategoryFragment"
+        android:name="com.example.yukigames.presentation.games_by_category.view.GamesByCategoryFragment"
+        android:label="GamesByCategoryFragment" >
         <action
-            android:id="@+id/action_gamesByGenreFragment_to_detailFragment"
+            android:id="@+id/action_gamesByCategoryFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-
         <argument
             android:name="genre"
             app:argType="string" />

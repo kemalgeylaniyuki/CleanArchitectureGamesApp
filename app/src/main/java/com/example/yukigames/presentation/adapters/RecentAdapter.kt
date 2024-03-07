@@ -3,14 +3,11 @@ package com.example.yukigames.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.yukigames.databinding.PopularItemBinding
 import com.example.yukigames.databinding.RecentItemBinding
 import com.example.yukigames.domain.model.Game
-import com.example.yukigames.presentation.main.views.pages.HomeFragmentDirections
+import com.example.yukigames.presentation.main_fragment.views.pages.HomeFragmentDirections
 
 class RecentAdapter : RecyclerView.Adapter<RecentAdapter.RecentHolder>() {
 

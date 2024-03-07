@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.PopularItemBinding
 import com.example.yukigames.domain.model.Game
-import com.example.yukigames.presentation.main.views.pages.HomeFragmentDirections
+import com.example.yukigames.presentation.main_fragment.views.pages.HomeFragmentDirections
 
 class PopularAdapter : RecyclerView.Adapter<PopularAdapter.GamesHolder>() {
 
