@@ -25,30 +25,25 @@ class GameDetailsViewModel @Inject constructor(
     private val deleteFavoriteGameUseCase: DeleteFavoriteGameUseCase
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(GameDetailsModel())
-    val state : StateFlow<GameDetailsModel> = _state
-
-
-    private var job : Job? = null
+    private val _stateGameDetails = MutableStateFlow(GameDetailsModel())
+    val stateGameDetails : StateFlow<GameDetailsModel> = _stateGameDetails
 
 
     fun getGameDetails(id : Int){
 
-        job?.cancel()
-
-        job = getGameDetailsUseCase.executeGetGameDetails(id = id).onEach {
+        getGameDetailsUseCase.executeGetGameDetails(id = id).onEach {
             when(it){
 
                 is Resource.Success -> {
-                    _state.value = GameDetailsModel(gameDetails = it.data)
+                    _stateGameDetails.emit(GameDetailsModel(gameDetails = it.data))
                 }
 
                 is Resource.Loading -> {
-                    _state.value = GameDetailsModel(isLoading = true)
+                    _stateGameDetails.emit(GameDetailsModel(isLoading = true))
                 }
 
                 is Resource.Error -> {
-                    _state.value = GameDetailsModel(error = it.message ?: "Error!")
+                    _stateGameDetails.emit(GameDetailsModel(error = it.message ?: "Error!"))
                 }
 
             }

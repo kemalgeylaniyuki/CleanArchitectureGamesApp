@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.yukigames.databinding.FragmentGamesByCategoryBinding
 import com.example.yukigames.presentation.adapters.GamesByCategoryAdapter
-import com.example.yukigames.presentation.base_fragment.BaseFragment
+import com.example.yukigames.presentation.BaseFragment
 import com.example.yukigames.presentation.games_by_category.viewmodel.GamesByCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -43,7 +43,7 @@ class GamesByCategoryFragment : BaseFragment<FragmentGamesByCategoryBinding, Gam
     override fun observeViewModel(){
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.state.collect { state ->
+            viewModel.stateGamesByCategory.collect { state ->
 
                 // Update UI based on the state
                 binding.progressBarGameByGenre.isVisible = state.isLoading

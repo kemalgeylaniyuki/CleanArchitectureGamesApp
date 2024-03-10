@@ -6,18 +6,18 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.yukigames.databinding.FragmentFavoritesBinding
-import com.example.yukigames.presentation.base_fragment.BaseFragment
+import com.example.yukigames.presentation.BaseFragment
 import com.example.yukigames.presentation.adapters.FavoriteAdapter
-import com.example.yukigames.presentation.main_fragment.viewmodels.favorite_viewmodel.FavoriteViewModel
+import com.example.yukigames.presentation.main_fragment.viewmodels.favorites_viewmodel.FavoritesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class FavoritesFragment : BaseFragment<FragmentFavoritesBinding, FavoriteViewModel>() {
+class FavoritesFragment : BaseFragment<FragmentFavoritesBinding, FavoritesViewModel>() {
 
     private lateinit var favoriteAdapter: FavoriteAdapter
 
-    override val viewModel : FavoriteViewModel by viewModels()
+    override val viewModel : FavoritesViewModel by viewModels()
 
     override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentFavoritesBinding {
         return FragmentFavoritesBinding.inflate(inflater, container, false)
@@ -32,7 +32,7 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding, FavoriteViewMod
     override fun observeViewModel(){
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.state.collect{ state ->
+            viewModel.stateFavorites.collect{ state ->
 
                 binding.progressBarFavorite.isVisible = state.isLoading
                 binding.errorViewFavorite.isVisible = state.error.isNotBlank()

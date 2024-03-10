@@ -16,36 +16,29 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val searchGamesUseCase: SearchGamesUseCase) : ViewModel() {
 
-    private val _state = MutableStateFlow(SearchModel())
-    val state : StateFlow<SearchModel> = _state
-
-    private var job : Job? = null
-
+    private val _stateSearch = MutableStateFlow(SearchModel())
+    val stateSearch : StateFlow<SearchModel> = _stateSearch
 
     init {
-        getSearchedGames(_state.value.search)
+        getSearchedGames(_stateSearch.value.search)
     }
-
-
 
     private fun getSearchedGames(search : String){
 
-        job?.cancel()
-
-        job = searchGamesUseCase.executeSearchGames(search).onEach {
+        searchGamesUseCase.executeSearchGames(search).onEach {
 
             when(it){
 
                 is Resource.Success -> {
-                    _state.value = SearchModel(searched_games = it.data ?: emptyList())
+                    _stateSearch.emit(SearchModel(searched_games = it.data ?: emptyList()))
                 }
 
                 is Resource.Loading -> {
-                    _state.value = SearchModel(isLoading = true)
+                    _stateSearch.emit(SearchModel(isLoading = true))
                 }
 
                 is Resource.Error -> {
-                    _state.value = SearchModel(error = it.message ?: "Error!")
+                    _stateSearch.emit(SearchModel(error = it.message ?: "Error!"))
                 }
 
             }

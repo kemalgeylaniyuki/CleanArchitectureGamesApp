@@ -16,31 +16,28 @@ import javax.inject.Inject
 class GamesByCategoryViewModel @Inject constructor(
     private val getGamesByGenreUseCase: GetGamesByGenreUseCase) : ViewModel() {
 
-    private val _state = MutableStateFlow(GamesByCategoryModel())
-    val state : StateFlow<GamesByCategoryModel> = _state
+    private val _stateGamesByCategory = MutableStateFlow(GamesByCategoryModel())
+    val stateGamesByCategory : StateFlow<GamesByCategoryModel> = _stateGamesByCategory
 
-    private var job : Job? = null
     init {
-        getGamesByGenre(_state.value.page, _state.value.genre)
+        getGamesByGenre(_stateGamesByCategory.value.page, _stateGamesByCategory.value.genre)
     }
     fun getGamesByGenre(page : String, genre : String){
 
-        job?.cancel()
-
-        job = getGamesByGenreUseCase.executeGetGamesByGenreUseCase(page = page, genre = genre).onEach {
+        getGamesByGenreUseCase.executeGetGamesByGenreUseCase(page = page, genre = genre).onEach {
 
             when(it){
 
                 is Resource.Success -> {
-                    _state.value = GamesByCategoryModel(games = it.data ?: emptyList())
+                    _stateGamesByCategory.emit(GamesByCategoryModel(games = it.data ?: emptyList()))
                 }
 
                 is Resource.Error -> {
-                    _state.value = GamesByCategoryModel(error = it.message ?: "Error !")
+                    _stateGamesByCategory.emit(GamesByCategoryModel(error = it.message ?: "Error !"))
                 }
 
                 is Resource.Loading -> {
-                    _state.value = GamesByCategoryModel(isLoading = true)
+                    _stateGamesByCategory.emit(GamesByCategoryModel(isLoading = true))
                 }
             }
         }.launchIn(viewModelScope)

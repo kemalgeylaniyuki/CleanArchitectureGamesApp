@@ -57,7 +57,7 @@ class DetailFragment : Fragment() {
 
 
         binding.checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
-            gameDetailsViewModel.state.value.gameDetails?.let {
+            gameDetailsViewModel.stateGameDetails.value.gameDetails?.let {
                 gameDetailsViewModel.toggleFavoriteStatus(it, isChecked)
 
                 with(sharedPreferences.edit()){
@@ -82,7 +82,7 @@ class DetailFragment : Fragment() {
     fun observeViewModel(){
 
         viewLifecycleOwner.lifecycleScope.launch {
-            gameDetailsViewModel.state.collect{
+            gameDetailsViewModel.stateGameDetails.collect{
 
                 it.gameDetails?.let {
                     binding.textViewName.text = it.name_original

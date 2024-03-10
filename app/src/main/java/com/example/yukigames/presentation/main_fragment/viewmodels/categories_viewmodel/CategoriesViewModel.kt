@@ -16,33 +16,31 @@ import javax.inject.Inject
 class CategoriesViewModel @Inject constructor(
     private val getGenresUseCase: GetGenresUseCase) : ViewModel() {
 
-    private val _state = MutableStateFlow(CategoriesModel())
-    val state : StateFlow<CategoriesModel> = _state
+    private val _stateCategories = MutableStateFlow(CategoriesModel())
+    val stateCategories : StateFlow<CategoriesModel> = _stateCategories
 
-    private var job : Job? = null
 
     init {
-        getGenres(_state.value.page)
+        getGenres(_stateCategories.value.page)
     }
 
     private fun getGenres(page : String){
 
-        job?.cancel()
-
-        job = getGenresUseCase.executeGetGenresUseCase(page = page).onEach {
+        getGenresUseCase.executeGetGenresUseCase(page = page).onEach {
 
             when(it){
 
                 is Resource.Success -> {
-                    _state.value = CategoriesModel(genres = it.data ?: emptyList())
+                    //_state.value = CategoriesModel(genres = it.data ?: emptyList())
+                    _stateCategories.emit(CategoriesModel(genres = it.data ?: emptyList()))
                 }
 
                 is Resource.Error -> {
-                    _state.value = CategoriesModel(error = it.message ?: "Error !")
+                    _stateCategories.emit(CategoriesModel(error = it.message ?: "Error !"))
                 }
 
                 is Resource.Loading -> {
-                    _state.value = CategoriesModel(isLoading = true)
+                    _stateCategories.emit(CategoriesModel(isLoading = true))
                 }
             }
         }.launchIn(viewModelScope)

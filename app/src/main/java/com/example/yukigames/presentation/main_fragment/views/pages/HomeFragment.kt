@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.yukigames.databinding.FragmentHomeBinding
-import com.example.yukigames.presentation.base_fragment.BaseFragment
+import com.example.yukigames.presentation.BaseFragment
 import com.example.yukigames.presentation.adapters.PopularAdapter
 import com.example.yukigames.presentation.adapters.RecentAdapter
 import com.example.yukigames.presentation.main_fragment.viewmodels.home_viewmodel.HomeViewModel

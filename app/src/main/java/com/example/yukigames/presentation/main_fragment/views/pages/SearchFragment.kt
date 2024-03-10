@@ -7,8 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.yukigames.databinding.FragmentSearchBinding
-import com.example.yukigames.presentation.base_fragment.BaseFragment
-import com.example.yukigames.presentation.base_fragment.SpecificFeature
+import com.example.yukigames.presentation.BaseFragment
 import com.example.yukigames.presentation.adapters.SearchedGamesAdapter
 import com.example.yukigames.presentation.main_fragment.viewmodels.search_viewmodel.SearchEvent
 import com.example.yukigames.presentation.main_fragment.viewmodels.search_viewmodel.SearchViewModel
@@ -57,7 +56,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(), S
     override fun observeViewModel(){
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.state.collect { state ->
+            viewModel.stateSearch.collect { state ->
 
                 // Update UI based on the state
                 binding.progressBarFromSearch.isVisible = state.isLoading
