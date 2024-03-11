@@ -16,16 +16,15 @@ import kotlinx.coroutines.launch
 class CategoriesFragment : BaseFragment<FragmentCategoriesBinding, CategoriesViewModel>() {
 
     private lateinit var categoriesAdaper : CategoriesAdaper
+    override fun getViewModelClass(): Class<CategoriesViewModel> = CategoriesViewModel::class.java
 
-    override val viewModel : CategoriesViewModel by viewModels()
+    override fun getViewBinding(): FragmentCategoriesBinding = FragmentCategoriesBinding.inflate(layoutInflater)
 
-    override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentCategoriesBinding {
-        return FragmentCategoriesBinding.inflate(inflater, container, false)
-    }
+    override fun setUpViews() {
 
-    override fun recyclerViewUpdates() {
         categoriesAdaper = CategoriesAdaper()
         binding.recyclerViewCategories.adapter = categoriesAdaper
+
     }
 
     override fun observeViewModel(){

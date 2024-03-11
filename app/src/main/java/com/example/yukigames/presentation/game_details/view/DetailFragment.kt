@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.yukigames.databinding.FragmentGameDetailsBinding
+import com.example.yukigames.presentation.BaseFragment
 import com.example.yukigames.presentation.game_details.viewModel.GameDetailsViewModel
 import com.example.yukigames.util.Constants.CHECKBOX_PREF
 import com.example.yukigames.util.Constants.CHECKBOX_STATE_KEY
@@ -18,35 +19,24 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DetailFragment : Fragment() {
-
-    private var _binding: FragmentGameDetailsBinding? = null
-    private val binding get() = _binding!!
-
-    private val gameDetailsViewModel : GameDetailsViewModel by viewModels()
+class DetailFragment : BaseFragment<FragmentGameDetailsBinding, GameDetailsViewModel>() {
 
     private var id = 0
+    override fun getViewModelClass(): Class<GameDetailsViewModel> = GameDetailsViewModel::class.java
 
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentGameDetailsBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
-    }
+    override fun getViewBinding(): FragmentGameDetailsBinding = FragmentGameDetailsBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+    }
+
+    override fun setUpViews() {
         arguments?.let {
             id = DetailFragmentArgs.fromBundle(it).id
         }
 
-        gameDetailsViewModel.getGameDetails(id)
+        viewModel.getGameDetails(id)
 
         observeViewModel()
 
@@ -57,8 +47,8 @@ class DetailFragment : Fragment() {
 
 
         binding.checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
-            gameDetailsViewModel.stateGameDetails.value.gameDetails?.let {
-                gameDetailsViewModel.toggleFavoriteStatus(it, isChecked)
+            viewModel.stateGameDetails.value.gameDetails?.let {
+                viewModel.toggleFavoriteStatus(it, isChecked)
 
                 with(sharedPreferences.edit()){
                     putBoolean(getCheckBoxStateKey(id), isChecked)
@@ -71,18 +61,16 @@ class DetailFragment : Fragment() {
                     Toast.makeText(requireContext(), "Removed from Favorites!", Toast.LENGTH_SHORT).show()
                 }
             }
-        }
-
-    }
+        }    }
 
     private fun getCheckBoxStateKey(id: Int): String {
         return "$CHECKBOX_STATE_KEY$id"
     }
 
-    fun observeViewModel(){
+    override fun observeViewModel(){
 
         viewLifecycleOwner.lifecycleScope.launch {
-            gameDetailsViewModel.stateGameDetails.collect{
+            viewModel.stateGameDetails.collect{
 
                 it.gameDetails?.let {
                     binding.textViewName.text = it.name_original
@@ -124,11 +112,6 @@ class DetailFragment : Fragment() {
             }
         }
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 
 }

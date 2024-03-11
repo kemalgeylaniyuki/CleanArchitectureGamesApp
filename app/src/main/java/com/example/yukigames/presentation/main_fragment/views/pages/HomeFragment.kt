@@ -20,20 +20,16 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private lateinit var popularAdapter : PopularAdapter
     private lateinit var recentAdapter: RecentAdapter
 
-    override val viewModel : HomeViewModel by viewModels()
+    override fun getViewModelClass(): Class<HomeViewModel> = HomeViewModel::class.java
 
-    override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentHomeBinding {
-        return FragmentHomeBinding.inflate(inflater, container, false)
-    }
+    override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
-    override fun recyclerViewUpdates(){
-
+    override fun setUpViews() {
         popularAdapter = PopularAdapter()
         recentAdapter = RecentAdapter()
 
         binding.recyclerViewPopular.adapter = popularAdapter
         binding.recyclerViewRecent.adapter = recentAdapter
-
     }
 
     override fun observeViewModel(){

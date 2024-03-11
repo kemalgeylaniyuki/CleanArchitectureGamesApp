@@ -15,18 +15,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(), SpecificFeature {
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
     private lateinit var searchedGamesAdapter: SearchedGamesAdapter
 
-    override val viewModel : SearchViewModel by viewModels()
+    override fun getViewModelClass(): Class<SearchViewModel> = SearchViewModel::class.java
 
-    override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentSearchBinding {
-        return FragmentSearchBinding.inflate(inflater, container, false)
-    }
+    override fun getViewBinding(): FragmentSearchBinding = FragmentSearchBinding.inflate(layoutInflater)
 
-    override fun specificFeature() {
-        super.specificFeature()
+    override fun setUpViews() {
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -46,9 +43,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(), S
         })
 
         binding.searchView.setOnCloseListener { true }
-    }
 
-    override fun recyclerViewUpdates() {
         searchedGamesAdapter = SearchedGamesAdapter()
         binding.recyclerViewSearching.adapter = searchedGamesAdapter
     }

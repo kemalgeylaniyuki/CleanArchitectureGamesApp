@@ -1,9 +1,6 @@
 package com.example.yukigames.presentation.games_by_category.view
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.yukigames.databinding.FragmentGamesByCategoryBinding
 import com.example.yukigames.presentation.adapters.GamesByCategoryAdapter
@@ -18,26 +15,21 @@ class GamesByCategoryFragment : BaseFragment<FragmentGamesByCategoryBinding, Gam
 
     private lateinit var gamesByGenreAdapter : GamesByCategoryAdapter
 
-    override val viewModel : GamesByCategoryViewModel by viewModels()
-
-    override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentGamesByCategoryBinding {
-        return FragmentGamesByCategoryBinding.inflate(inflater, container, false)
-    }
-
     var genre : String = ""
 
-    override fun specificFeature() {
-        super.specificFeature()
+    override fun getViewModelClass(): Class<GamesByCategoryViewModel> = GamesByCategoryViewModel::class.java
+
+    override fun getViewBinding(): FragmentGamesByCategoryBinding = FragmentGamesByCategoryBinding.inflate(layoutInflater)
+
+    override fun setUpViews() {
+        gamesByGenreAdapter = GamesByCategoryAdapter()
+        binding.recyclerViewGameByGenre.adapter = gamesByGenreAdapter
+
         arguments?.let {
             genre = GamesByCategoryFragmentArgs.fromBundle(it).genre
         }
 
         viewModel.getGamesByGenre("1",genre)
-    }
-
-    override fun recyclerViewUpdates() {
-        gamesByGenreAdapter = GamesByCategoryAdapter()
-        binding.recyclerViewGameByGenre.adapter = gamesByGenreAdapter
     }
 
     override fun observeViewModel(){

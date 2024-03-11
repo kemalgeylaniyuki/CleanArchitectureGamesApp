@@ -17,14 +17,11 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding, FavoritesViewMo
 
     private lateinit var favoriteAdapter: FavoriteAdapter
 
-    override val viewModel : FavoritesViewModel by viewModels()
+    override fun getViewModelClass(): Class<FavoritesViewModel> = FavoritesViewModel::class.java
 
-    override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentFavoritesBinding {
-        return FragmentFavoritesBinding.inflate(inflater, container, false)
-    }
+    override fun getViewBinding(): FragmentFavoritesBinding = FragmentFavoritesBinding.inflate(layoutInflater)
 
-
-    override fun recyclerViewUpdates() {
+    override fun setUpViews() {
         favoriteAdapter = FavoriteAdapter()
         binding.recyclerViewFavorites.adapter = favoriteAdapter
     }
