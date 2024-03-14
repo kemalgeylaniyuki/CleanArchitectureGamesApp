@@ -5,21 +5,13 @@
 <h2>Project Screenshots:</h2>
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_1.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_2.png" alt="project-screenshot" width="201" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_3.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/intro_4.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/splash.png" alt="project-screenshot" width="200" height="400/">
+  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/Yuki_Games/master/gradle/wrapper/YUKI%20GAMES%20(1).png" alt="project-screenshot"/">
 </div>
 
 
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/home.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/favorites.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/search.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/categories.png" alt="project-screenshot" width="200" height="400/">
-  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/CleanArchitectureGamesApp/master/app/details.png" alt="project-screenshot" width="200" height="400/">
+  <img src="https://raw.githubusercontent.com/kemalgeylaniyuki/Yuki_Games/master/gradle/wrapper/YUKI%20GAMES.png"/">
 </div>
 
 
